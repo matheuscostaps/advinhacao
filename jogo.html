@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Adivinhação</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Jogo de Adivinhação</h1>
-    <p>Adivinhe um número entre 1 e 100!</p>
-    <input type="number" id="palpite" placeholder="Seu palpite">
-    <button onclick="adivinhar()">Tentar</button>
-    <p id="resultado"></p>
+
+    <div class="container">
+        <h1>Jogo de Adivinhação</h1>
+        <p>Adivinhe um número entre 1 e 100!</p>
+        <input type="number" id="palpite" placeholder="Seu palpite">
+        <button onclick="adivinhar()">Tentar</button>
+        <p id="resultado"></p>
+    </div>
 
     <script>
         const numeroSecreto = Math.floor(Math.random() * 100) + 1;
@@ -21,12 +74,17 @@
 
             if (palpite < numeroSecreto) {
                 resultado.textContent = "Muito baixo!";
+                resultado.style.color = "red";
             } else if (palpite > numeroSecreto) {
                 resultado.textContent = "Muito alto!";
+                resultado.style.color = "orange";
             } else {
                 resultado.textContent = "Parabéns! Você acertou!";
+                resultado.style.color = "green";
             }
         }
     </script>
+
 </body>
 </html>
+
